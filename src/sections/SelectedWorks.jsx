@@ -16,7 +16,7 @@ const projects = [
     title: "Kwii",
     description: "A fully interpreted programming language with a built-in REPL. Enables dynamic typing and OOP.",
     tags: ["Java", "Abstract Syntax Trees", "Data Structures"],
-    image: "https://private-user-images.githubusercontent.com/113273826/488147529-927580e3-59ba-438b-ab48-c79b9f1d65cf.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjY5NDcwNzIsIm5iZiI6MTc2Njk0Njc3MiwicGF0aCI6Ii8xMTMyNzM4MjYvNDg4MTQ3NTI5LTkyNzU4MGUzLTU5YmEtNDM4Yi1hYjQ4LWM3OWI5ZjFkNjVjZi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUxMjI4JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MTIyOFQxODMyNTJaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT00MjA5NGVjYTNjMGE1ZjJjYjMzMDQzMmRiZDQxZDE4MjY0NzBjNDBmYzY4OTk0N2Q4YWM4Y2JlMzY2M2Y0ZTg4JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.33UW3RjqZShfbXqvkTM5kChMkU6-Yuyo8LZg-tKM6zc",
+    image: "/src/assets/kwii.png",
     link: null,
     github: "https://github.com/daxhielp/kwii-main",
     colSpan: "col-span-1",
