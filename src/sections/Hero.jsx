@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Download } from 'lucide-react';
 
+import resume from '../assets/daxhiel_resume.pdf';
+
 export default function Hero() {
   return (
     <section id="hero" className="min-h-screen flex flex-col justify-center px-6 md:px-20 pt-20 relative overflow-hidden">
@@ -32,7 +34,7 @@ export default function Hero() {
             View Work
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
-          <a href='/src/assets/daxhiel_resume.pdf' download='resume.pdf'>
+          <a href={resume} download='resume.pdf'>
             <button className="px-8 py-4 bg-white/5 text-white border border-white/10 rounded-full font-medium hover:bg-white/10 transition-colors flex items-center gap-2">
               Download Resume
               <Download className="w-4 h-4" />

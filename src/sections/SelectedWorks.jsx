@@ -2,6 +2,8 @@ import BentoCard from '../components/BentoCard';
 import SectionHeader from '../components/SectionHeader';
 import { ExternalLink, Github } from 'lucide-react';
 
+import kwii from '../assets/kwii.png'
+
 const projects = [
   {
     title: "Fake News Detector",
@@ -16,7 +18,7 @@ const projects = [
     title: "Kwii",
     description: "A fully interpreted programming language with a built-in REPL. Enables dynamic typing and OOP.",
     tags: ["Java", "Abstract Syntax Trees", "Data Structures"],
-    image: "/src/assets/kwii.png",
+    image: kwii,
     link: null,
     github: "https://github.com/daxhielp/kwii-main",
     colSpan: "col-span-1",
