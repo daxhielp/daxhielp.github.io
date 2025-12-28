@@ -1,6 +1,8 @@
 import SectionHeader from '../components/SectionHeader';
 import { motion } from 'framer-motion';
 
+import resume from '../assets/daxhiel_resume.pdf';
+
 const experiences = [
   {
     role: "Live Sound Engineer",
@@ -19,7 +21,7 @@ export default function Experience() {
             <p className="text-slate-muted max-w-sm mb-8">
               My professional journey has been driven by a passion for clean code and user-centric design.
             </p>
-            <a href="#" className="text-sm font-medium border-b border-white pb-1 hover:text-slate-300 transition-colors inline-block">
+            <a href={resume} download='resume.pdf' className="text-sm font-medium border-b border-white pb-1 hover:text-slate-300 transition-colors inline-block">
               View Full Resume
             </a>
           </div>
