@@ -19,8 +19,8 @@ export default function Footer() {
         <h2 className="text-4xl md:text-6xl font-bold mb-12 tracking-tight">Let's connect!</h2>
         
         <div className="flex justify-center items-center gap-6 mb-16">
-          <a href="#" className="p-4 rounded-full bg-white/5 hover:bg-white/10 transition-colors border border-white/5 hover:scale-110 transition-transform"><Linkedin className="w-6 h-6" /></a>
-          <a href="#" className="p-4 rounded-full bg-white/5 hover:bg-white/10 transition-colors border border-white/5 hover:scale-110 transition-transform"><Github className="w-6 h-6" /></a>
+          <a href="www.linkedin.com/in/daxhielp" className="p-4 rounded-full bg-white/5 hover:bg-white/10 transition-colors border border-white/5 hover:scale-110 transition-transform"><Linkedin className="w-6 h-6" /></a>
+          <a href="https://github.com/daxhielp" className="p-4 rounded-full bg-white/5 hover:bg-white/10 transition-colors border border-white/5 hover:scale-110 transition-transform"><Github className="w-6 h-6" /></a>
           <a href={`mailto:${email}`} className="p-4 rounded-full bg-white/5 hover:bg-white/10 transition-colors border border-white/5 hover:scale-110 transition-transform"><Mail className="w-6 h-6" /></a>
         </div>
 
@@ -29,7 +29,7 @@ export default function Footer() {
           className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all active:scale-95"
         >
           <span className="text-slate-300">{email}</span>
-          {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4 text-slate-500" />}
+          {copied ? <Check className="w-4 h-4 text-blue-600" /> : <Copy className="w-4 h-4 text-slate-500" />}
         </button>
         
         <div className="mt-24 text-xs text-slate-600 uppercase tracking-widest">
