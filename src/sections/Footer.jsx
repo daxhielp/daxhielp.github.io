@@ -19,7 +19,7 @@ export default function Footer() {
         <h2 className="text-4xl md:text-6xl font-bold mb-12 tracking-tight">Let's connect!</h2>
         
         <div className="flex justify-center items-center gap-6 mb-16">
-          <a href="www.linkedin.com/in/daxhielp" className="p-4 rounded-full bg-white/5 hover:bg-white/10 transition-colors border border-white/5 hover:scale-110 transition-transform"><Linkedin className="w-6 h-6" /></a>
+          <a href="https://www.linkedin.com/in/daxhielp" className="p-4 rounded-full bg-white/5 hover:bg-white/10 transition-colors border border-white/5 hover:scale-110 transition-transform"><Linkedin className="w-6 h-6" /></a>
           <a href="https://github.com/daxhielp" className="p-4 rounded-full bg-white/5 hover:bg-white/10 transition-colors border border-white/5 hover:scale-110 transition-transform"><Github className="w-6 h-6" /></a>
           <a href={`mailto:${email}`} className="p-4 rounded-full bg-white/5 hover:bg-white/10 transition-colors border border-white/5 hover:scale-110 transition-transform"><Mail className="w-6 h-6" /></a>
         </div>

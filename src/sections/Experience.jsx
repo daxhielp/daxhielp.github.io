@@ -19,7 +19,7 @@ export default function Experience() {
           <div>
             <SectionHeader title="Experience" subtitle="Career" />
             <p className="text-slate-muted max-w-sm mb-8">
-              My professional journey has been driven by a passion for clean code and user-centric design.
+              My programming journey has been driven by my passion for solving problems and learning new ideas.
             </p>
             <a href={resume} download='resume.pdf' className="text-sm font-medium border-b border-white pb-1 hover:text-slate-300 transition-colors inline-block">
               View Full Resume
