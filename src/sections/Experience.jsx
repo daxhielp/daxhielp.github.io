@@ -5,10 +5,16 @@ import resume from '../assets/daxhiel_resume.pdf';
 
 const experiences = [
   {
-    role: "Live Sound Engineer",
+    role: "Fullstack Developer",
+    company: "Getfertilizerwiser, St. Edward's University",
+    period: "2026 - Present",
+    description: "Developed a TypeScript-heavy web application with modular, strongly typed front-end logic and implemented responsive UI components using CSS and JavaScript.",
+  },
+  {
+    role: "Co-Director",
     company: "Austin Spanish First",
     period: "2020 - Present",
-    description: "Organizing and operating a 10+ person group to increase viewership by 50%.",
+    description: "Directing a 10+ member technical team to deliver seamless audio/visual experiences and leading the redesign of audio/streaming infrastructure, increasing viewership by 50%.",
   }
 ];
 
