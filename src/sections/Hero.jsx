@@ -20,7 +20,7 @@ export default function Hero() {
           Available for new opportunities
         </div> */}
         
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.1] mb-8 bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.1] mb-8 bg-gradient-to-r from-white via-slate-100 to-slate-300 bg-clip-text text-transparent">
           Hi! I'm 
           <span className="italic font-serif text-white/90"> Daxhiel</span>
         </h1>
@@ -29,7 +29,7 @@ export default function Hero() {
           I'm a Frontend Engineer crafting high-performance web applications with a focus on motion, design, and user experience.
         </p> */}
         
-        <div className="flex flex-wrap gap-4">
+        {/* <div className="flex flex-wrap gap-4">
           <a href="#work" className="px-8 py-4 bg-white text-black rounded-full font-medium hover:bg-slate-200 transition-colors flex items-center gap-2 group">
             View Work
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -40,7 +40,7 @@ export default function Hero() {
               <Download className="w-4 h-4" />
             </button>
           </a>
-        </div>
+        </div> */}
       </motion.div>
     </section>
   );

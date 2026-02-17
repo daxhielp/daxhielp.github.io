@@ -13,8 +13,8 @@ function App() {
       
       <div className="max-w-7xl mx-auto w-full">
         <Hero />
-        <SelectedWorks />
         <Experience />
+        <SelectedWorks />
         <Footer />
       </div>
     </main>

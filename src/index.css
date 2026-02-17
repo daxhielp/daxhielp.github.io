@@ -6,6 +6,11 @@
   body {
     @apply bg-background text-white antialiased selection:bg-white/20;
     overflow-x: hidden;
+    cursor: none;
+  }
+  
+  a, button, [role="button"], input, textarea, select {
+    cursor: none;
   }
   
   html {
