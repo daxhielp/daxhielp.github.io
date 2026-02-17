@@ -9,8 +9,8 @@ function App() {
   return (
     <main className="bg-background min-h-screen text-white selection:bg-emerald-500/30">
       <MagneticCursor />
-      <Navbar />
-      
+      {/* <Navbar /> */}
+
       <div className="max-w-7xl mx-auto w-full">
         <Hero />
         <Experience />
