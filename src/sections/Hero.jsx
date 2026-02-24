@@ -1,8 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Download } from 'lucide-react';
 
-import resume from '../assets/daxhiel_resume.pdf';
-
 export default function Hero() {
   return (
     <section id="hero" className="min-h-screen flex flex-col justify-center px-6 md:px-20 pt-20 relative overflow-hidden">

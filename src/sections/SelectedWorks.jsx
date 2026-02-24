@@ -134,18 +134,21 @@ export default function SelectedWorks() {
   const [expandedIndex, setExpandedIndex] = useState(0); // Default first one open for better UX
 
   return (
-    <section id="work" className="px-6 md:px-20 py-24">
-      <SectionHeader title="Featured Projects" subtitle="Featured" />
+    <section id="work" className="px-6 md:px-20 py-24 relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-surface/5 to-transparent pointer-events-none" />
+      <div className="relative z-10">
+        <SectionHeader title="Featured Projects" subtitle="Featured" />
 
-      <div className="mt-12 border-t border-zinc-800">
-        {projects.map((project, index) => (
-          <ProjectRow 
-            key={project.title} 
-            project={project} 
+        <div className="mt-12 border-t border-white/5">
+          {projects.map((project, index) => (
+            <ProjectRow 
+              key={project.title} 
+              project={project} 
             isExpanded={expandedIndex === index}
             onToggle={() => setExpandedIndex(expandedIndex === index ? null : index)}
           />
         ))}
+        </div>
       </div>
     </section>
   );

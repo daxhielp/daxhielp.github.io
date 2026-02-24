@@ -20,8 +20,9 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="px-6 md:px-20 py-24 bg-gradient-to-b from-transparent to-surface/30">
-       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+    <section id="experience" className="px-6 md:px-20 py-24 relative">
+       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-surface/5 to-transparent pointer-events-none" />
+       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10">
           <div>
             <SectionHeader title="Experience" subtitle="Career" />
             <p className="text-slate-muted max-w-sm mb-8">
