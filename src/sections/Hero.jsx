@@ -3,9 +3,7 @@ import { ArrowRight, Download } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section id="hero" className="min-h-screen flex flex-col justify-center px-6 md:px-20 pt-20 relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-900/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-emerald-900/10 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+    <section id="hero" className="min-h-screen flex flex-col justify-center px-6 md:px-20 pt-20 relative">
 
       <motion.div 
         initial={{ opacity: 0, y: 30 }}

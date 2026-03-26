@@ -5,10 +5,10 @@ import resume from '../assets/daxhiel_resume.pdf';
 
 const experiences = [
   {
-    role: "Fullstack Developer Intern",
+    role: "Fullstack Developer",
     company: "Getfertilizerwiser, St. Edward's University",
     period: "2026 - Present",
-    description: "Developed a TypeScript-heavy web application with modular, strongly typed front-end logic and implemented responsive UI components using CSS and JavaScript.",
+    description: "Developed a full stack website for a non-profit environmental campaign based in Austin, TX using Next.js and Tailwind CSS v4, hosted on Vercel. The site features event listings, educational resources, sponsor showcases, and a contact form.",
   },
   {
     role: "Co-Director",

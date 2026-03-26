@@ -137,7 +137,7 @@ const InteractiveBackground: React.FC<InteractiveBackgroundProps> = ({
                 const dy = particles[a].y - particles[b].y;
                 const distance = dx * dx + dy * dy;
 
-                if (distance < (canvas.width / 7) * (canvas.height / 7)) {
+                if (distance < 20000) {
                     opacityValue = 1 - (distance / 20000);
                     // Use lineColor but inject opacity? 
                     // Assuming lineColor is rgba, we might need to parse it or just use a default white with varying opacity.
