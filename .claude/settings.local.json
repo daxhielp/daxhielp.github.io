@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Skill(browse:browser)"
+      "Skill(browse:browser)",
+      "Bash(find /c/Users/daxpe/School/CS/Projects/audioprint -maxdepth 2 -type f -name *.png -o -name *.jpg -o -name *.jpeg)"
     ]
   }
 }

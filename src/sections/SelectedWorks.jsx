@@ -5,6 +5,14 @@ import SectionHeader from '../components/SectionHeader';
 
 const projects = [
   {
+    title: "AudioPrint",
+    type: "Signal Processing",
+    year: "2026",
+    description: "A from-scratch Python implementation of the Shazam-style audio fingerprinting algorithm. Identifies songs from short audio clips using STFT spectrograms, spectral peak extraction, and combinatorial hash matching — with speed-invariant matching for slowed/reverbed audio.",
+    tech: ["Python", "FastAPI", "React", "SQLite", "NumPy/SciPy"],
+    github: "https://github.com/daxhielp/audioprint",
+  },
+  {
     title: "Kalshi Arbitrage Bot",
     type: "FinTech",
     year: "2026",
