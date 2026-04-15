@@ -2,51 +2,53 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ExternalLink, Github } from 'lucide-react';
 import SectionHeader from '../components/SectionHeader';
+import FeaturedProject from '../components/FeaturedProject';
+
+const featuredProject = {
+  title: 'VoiceSense',
+  type: 'Machine Learning',
+  year: '2026',
+  description: 'A full-stack Speech Emotion Recognition app. Record your voice in the browser and receive a real-time emotion prediction from a CNN trained on the RAVDESS dataset across 8 emotions. Features a real-time canvas waveform visualizer, animated probability breakdown, and end-to-end Docker deployment on Render + Vercel.',
+  tech: ['Python', 'FastAPI', 'React', 'TypeScript', 'ONNX', 'librosa', 'Docker', 'Framer Motion'],
+  github: 'https://github.com/daxhielp/voicesense',
+  link: 'https://voicesense-beryl.vercel.app/',
+};
 
 const projects = [
   {
-    title: "AudioPrint",
-    type: "Signal Processing",
-    year: "2026",
-    description: "A from-scratch Python implementation of the Shazam-style audio fingerprinting algorithm. Identifies songs from short audio clips using STFT spectrograms, spectral peak extraction, and combinatorial hash matching — with speed-invariant matching for slowed/reverbed audio.",
-    tech: ["Python", "FastAPI", "React", "SQLite", "NumPy/SciPy"],
-    github: "https://github.com/daxhielp/audioprint",
+    title: 'AudioPrint',
+    type: 'Signal Processing',
+    year: '2026',
+    description: 'A from-scratch Python implementation of the Shazam-style audio fingerprinting algorithm. Identifies songs from short audio clips using STFT spectrograms, spectral peak extraction, and combinatorial hash matching — with a speed-invariant mode that handles slowed/reverbed audio at 0.5x to 1.25x playback speed.',
+    tech: ['Python', 'FastAPI', 'React', 'SQLite', 'NumPy', 'SciPy', 'Docker'],
+    github: 'https://github.com/daxhielp/audioprint',
   },
   {
-    title: "Kalshi Arbitrage Bot",
-    type: "FinTech",
-    year: "2026",
-    description: "A Python-based arbitrage engine that integrates with the Kalshi API to scan prediction markets and algorithmically detect risk-free “bundle long” and “bundle short” opportunities.",
-    tech: ["Python", "REST", "Market Analysis", "Algorithms"],
-    github: "https://github.com/daxhielp/karbot",
+    title: 'Kalshi Arbitrage Bot',
+    type: 'FinTech',
+    year: '2026',
+    description: 'A Python-based arbitrage engine that integrates with the Kalshi API to scan prediction markets and algorithmically detect risk-free "bundle long" and "bundle short" opportunities.',
+    tech: ['Python', 'REST', 'Market Analysis', 'Algorithms'],
+    github: 'https://github.com/daxhielp/karbot',
   },
   {
-    title: "Fake News Detector",
-    type: "Machine Learning",
-    year: "2025",
-    description: "An ML-powered engine that reads and performs sentiment analysis to identify whether a news article is fake or not.",
-    tech: ["Python", "NLP", "FastAPI", "React", "ML"],
-    link: "https://fake-or-not-6rcp.vercel.app/",
-    github: "https://github.com/daxhielp/fake-or-not",
+    title: 'Fake News Detector',
+    type: 'Machine Learning',
+    year: '2025',
+    description: 'An ML-powered engine that reads and performs sentiment analysis to identify whether a news article is fake or not.',
+    tech: ['Python', 'NLP', 'FastAPI', 'React', 'ML'],
+    link: 'https://fake-or-not-6rcp.vercel.app/',
+    github: 'https://github.com/daxhielp/fake-or-not',
   },
   {
-    title: "Flappy Bird Bot",
-    type: "Artificial Intelligence",
-    year: "2023",
-    description: "An automated bot that uses evolutionary algorithms and reinforcement learning to learn and play the hit game \"Flappy Bird\"",
-    tech: ["NEAT", "Reinforcement Learning", "Python"],
-    github: null,
+    title: 'Kwii',
+    type: 'Compiler Design',
+    year: '2025',
+    description: 'An interpreted programming language built from scratch on top of Java with a recursive descent parser, abstract syntax tree evaluator, and runtime environment.',
+    tech: ['Java', 'Compilers', 'AST', 'Data Structures'],
+    github: 'https://github.com/daxhielp/kwii-main',
     link: null,
   },
-  {
-    title: "Kwii",
-    type: "Compiler Design",
-    year: "2025",
-    description: "An interpreted programming language built from scratch on top of Java with a recursive descent parser, abstract syntax tree evaluator, and runtime environment.",
-    tech: ["Java", "Compilers", "AST", "Data Structures"],
-    github: "https://github.com/daxhielp/kwii-main",
-    link: null,
-  }
 ];
 
 function ProjectRow({ project, isExpanded, onToggle }) {
@@ -71,7 +73,7 @@ function ProjectRow({ project, isExpanded, onToggle }) {
               </span>
             ))}
           </div>
-          
+
           <div className="flex items-center gap-6">
             <span className="font-mono text-sm text-zinc-600">{project.year}</span>
             <motion.div
@@ -88,7 +90,7 @@ function ProjectRow({ project, isExpanded, onToggle }) {
         {isExpanded && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
+            animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
             className="overflow-hidden"
@@ -97,12 +99,12 @@ function ProjectRow({ project, isExpanded, onToggle }) {
               <p className="text-zinc-400 text-lg leading-relaxed mb-8">
                 {project.description}
               </p>
-              
+
               <div className="flex flex-wrap gap-4">
                 {project.github && (
-                  <a 
-                    href={project.github} 
-                    target="_blank" 
+                  <a
+                    href={project.github}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 px-5 py-2.5 bg-white text-black rounded-full text-sm font-medium hover:bg-zinc-200 transition-colors"
                   >
@@ -111,9 +113,9 @@ function ProjectRow({ project, isExpanded, onToggle }) {
                   </a>
                 )}
                 {project.link && (
-                  <a 
-                    href={project.link} 
-                    target="_blank" 
+                  <a
+                    href={project.link}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 px-5 py-2.5 bg-zinc-800 text-white border border-zinc-700 rounded-full text-sm font-medium hover:bg-zinc-700 transition-colors"
                   >
@@ -139,7 +141,7 @@ function ProjectRow({ project, isExpanded, onToggle }) {
 }
 
 export default function SelectedWorks() {
-  const [expandedIndex, setExpandedIndex] = useState(0); // Default first one open for better UX
+  const [expandedIndex, setExpandedIndex] = useState(null);
 
   return (
     <section id="work" className="px-6 md:px-20 py-24 relative">
@@ -147,15 +149,19 @@ export default function SelectedWorks() {
       <div className="relative z-10">
         <SectionHeader title="Featured Projects" subtitle="Featured" />
 
-        <div className="mt-12 border-t border-white/5">
+        <div className="mt-12">
+          <FeaturedProject project={featuredProject} />
+        </div>
+
+        <div className="mt-4 border-t border-white/5">
           {projects.map((project, index) => (
-            <ProjectRow 
-              key={project.title} 
-              project={project} 
-            isExpanded={expandedIndex === index}
-            onToggle={() => setExpandedIndex(expandedIndex === index ? null : index)}
-          />
-        ))}
+            <ProjectRow
+              key={project.title}
+              project={project}
+              isExpanded={expandedIndex === index}
+              onToggle={() => setExpandedIndex(expandedIndex === index ? null : index)}
+            />
+          ))}
         </div>
       </div>
     </section>
