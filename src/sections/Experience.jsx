@@ -5,16 +5,10 @@ import resume from '../assets/daxhiel_resume.pdf';
 
 const experiences = [
   {
-    role: "Fullstack Developer",
-    company: "Getfertilizerwiser, St. Edward's University",
+    role: "Freelance Developer",
+    // company: "Getfertilizerwiser, St. Edward's University",
     period: "2026 - Present",
     description: "Developed a full stack website for a non-profit environmental campaign based in Austin, TX using Next.js and Tailwind CSS v4, hosted on Vercel. The site features event listings, educational resources, sponsor showcases, and a contact form.",
-  },
-  {
-    role: "Co-Director",
-    company: "Austin Spanish First",
-    period: "2020 - Present",
-    description: "Directing a 10+ member technical team to deliver seamless audio/visual experiences and leading the redesign of audio/streaming infrastructure, increasing viewership by 50%.",
   }
 ];
 

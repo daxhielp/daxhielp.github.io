@@ -1,4 +1,4 @@
-import { Mail, Linkedin, Twitter, Copy, Check, Github } from 'lucide-react';
+import { Mail, Linkedin, Copy, Check, Github } from 'lucide-react';
 import { useState } from 'react';
 
 export default function Footer() {
@@ -13,8 +13,7 @@ export default function Footer() {
 
   return (
     <footer id="contact" className="px-6 md:px-20 py-24 pb-32 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-slate-900/20 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(120%_85%_at_50%_45%,rgba(15,23,42,0.2)_0%,rgba(15,23,42,0.14)_28%,rgba(2,6,23,0.08)_56%,rgba(2,6,23,0)_84%),radial-gradient(85%_65%_at_50%_72%,rgba(30,41,59,0.08)_0%,rgba(2,6,23,0)_78%)] pointer-events-none" />
       
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <h2 className="text-4xl md:text-6xl font-bold mb-12 tracking-tight">Let's connect!</h2>
