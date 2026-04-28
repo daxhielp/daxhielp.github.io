@@ -6,9 +6,8 @@ import resume from '../assets/daxhiel_resume.pdf';
 const experiences = [
   {
     role: "Freelance Developer",
-    // company: "Getfertilizerwiser, St. Edward's University",
     period: "2026 - Present",
-    description: "Developed a full stack website for a non-profit environmental campaign based in Austin, TX using Next.js and Tailwind CSS v4, hosted on Vercel. The site features event listings, educational resources, sponsor showcases, and a contact form.",
+    description: "Develop full stack applications, integrating third party tools such as Apps Script, Excel, etc, bringing platforms to production with Vercel + Render and using Tailwind CSS and Framer Motion",
   }
 ];
 
