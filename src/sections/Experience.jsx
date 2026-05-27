@@ -7,7 +7,7 @@ const experiences = [
   {
     role: "Freelance Developer",
     period: "2026 - Present",
-    description: "Develop full stack applications, integrating third party tools such as Apps Script, Excel, etc, bringing platforms to production with Vercel + Render and using Tailwind CSS and Framer Motion",
+    description: "Develop full stack applications, integrating third party tools such as Apps Script, Excel, etc, bringing platforms to production with Vercel + Render and using Tailwind CSS and Framer Motion.",
   }
 ];
 
