@@ -5,16 +5,25 @@ import SectionHeader from '../components/SectionHeader';
 import FeaturedProject from '../components/FeaturedProject';
 
 const featuredProject = {
-  title: 'VoiceSense',
-  type: 'Machine Learning',
+  title: 'VibeDungeon',
+  type: 'Agentic System',
   year: '2026',
-  description: 'A full-stack Speech Emotion Recognition app. Record your voice in the browser and receive a real-time emotion prediction from a CNN trained on the RAVDESS dataset across 8 emotions. Features a real-time canvas waveform visualizer, animated probability breakdown, and end-to-end Docker deployment on Render + Vercel.',
-  tech: ['Python', 'FastAPI', 'React', 'TypeScript', 'ONNX', 'librosa', 'Docker', 'Framer Motion'],
-  github: 'https://github.com/daxhielp/voicesense',
-  link: 'https://voicesense-beryl.vercel.app/',
+  visual: 'vibedungeon',
+  description: 'A Python CLI dungeon crawler built with Rich. Create a character and navigate a procedurally generated dungeon, where each room features an AI-powered encounter powered by a multi-agent harness for encounter generation, npc dialogue, and item/ability generation.',
+  tech: ['AI Harness', 'Data Serialization', 'Procedural Generation', 'Rich', 'JSON/Pickle'],
+  github: 'https://github.com/daxhielp/vibeDungeon',
 };
 
 const projects = [
+  {
+    title: 'VoiceSense',
+    type: 'Machine Learning',
+    year: '2026',
+    description: 'A full-stack Speech Emotion Recognition app. Record your voice in the browser and receive a real-time emotion prediction from a CNN trained on the RAVDESS dataset across 8 emotions. Features a real-time canvas waveform visualizer, animated probability breakdown, and end-to-end Docker deployment on Render + Vercel.',
+    tech: ['Python', 'FastAPI', 'React', 'TypeScript', 'ONNX', 'librosa', 'Docker', 'Framer Motion'],
+    github: 'https://github.com/daxhielp/voicesense',
+    link: 'https://voicesense-beryl.vercel.app/',
+  },
   {
     title: 'AudioPrint',
     type: 'Signal Processing',
