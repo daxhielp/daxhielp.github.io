@@ -5,9 +5,14 @@ import resume from '../assets/daxhiel_resume.pdf';
 
 const experiences = [
   {
+    role: "Course Instructor",
+    period: "June 2026 - Present",
+    description: "Instructing 24+ students on SDE fundamentals, including Python programming, OOP, error handling, and data management, achieving 94% average attendance and 95% average quiz scores."
+  },
+  {
     role: "Freelance Developer",
-    period: "2026 - Present",
-    description: "Develop full stack applications, integrating third party tools such as Apps Script, Excel, etc, bringing platforms to production with Vercel + Render and using Tailwind CSS and Framer Motion.",
+    period: "Jan 2026 - May 2026",
+    description: "Developed full stack applications, integrating third party tools such as Apps Script, Excel, etc, bringing platforms to production with Vercel + Render and using Tailwind CSS and Framer Motion.",
   }
 ];
 
