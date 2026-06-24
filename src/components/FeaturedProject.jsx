@@ -2,250 +2,6 @@ import { useRef, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { Github, ExternalLink } from 'lucide-react';
 
-// ── Waveform canvas ───────────────────────────────────────────────────────────
-// Mimics VoiceSense's real-time WaveformVisualizer: a violet gradient sine wave
-// with a glow effect, animated at ~60fps.
-
-function WaveformCanvas() {
-  const canvasRef = useRef(null);
-  const rafRef = useRef(0);
-  const tRef = useRef(0);
-  const observerRef = useRef(null);
-  const runningRef = useRef(false);
-
-  const draw = useCallback(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-    const W = canvas.width;
-    const H = canvas.height;
-
-    tRef.current += 0.03;
-    const t = tRef.current;
-
-    ctx.clearRect(0, 0, W, H);
-
-    // Gradient stroke — left violet → centre lavender → right violet
-    const gradient = ctx.createLinearGradient(0, 0, W, 0);
-    gradient.addColorStop(0,   '#6d28d9');
-    gradient.addColorStop(0.5, '#c4b5fd');
-    gradient.addColorStop(1,   '#6d28d9');
-
-    ctx.lineWidth   = 2.5;
-    ctx.strokeStyle = gradient;
-    ctx.shadowColor = '#8b5cf6';
-    ctx.shadowBlur  = 14;
-    ctx.lineJoin    = 'round';
-    ctx.lineCap     = 'round';
-
-    ctx.beginPath();
-    const points = 200;
-    for (let i = 0; i <= points; i++) {
-      const x = (i / points) * W;
-      // Compound sine for organic feel
-      const y = H / 2
-        + Math.sin(i * 0.08 + t * 2.1) * H * 0.18
-        + Math.sin(i * 0.16 + t * 1.3) * H * 0.10
-        + Math.sin(i * 0.04 + t * 0.9) * H * 0.08;
-      if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
-    }
-    ctx.stroke();
-
-    // Label
-    ctx.shadowBlur  = 0;
-    ctx.fillStyle   = 'rgba(196,181,253,0.5)';
-    ctx.font        = '10px monospace';
-    ctx.fillText('Live waveform', 8, H - 6);
-    ctx.fillStyle   = 'rgba(100,116,139,0.7)';
-    ctx.fillText('MediaRecorder API', W - 118, H - 6);
-
-    if (runningRef.current) rafRef.current = requestAnimationFrame(draw);
-  }, []);
-
-  const play = useCallback(() => {
-    runningRef.current = true;
-    cancelAnimationFrame(rafRef.current);
-    rafRef.current = requestAnimationFrame(draw);
-  }, [draw]);
-
-  const stop = useCallback(() => {
-    runningRef.current = false;
-    cancelAnimationFrame(rafRef.current);
-  }, []);
-
-  useEffect(() => {
-    // Draw a static flat line initially
-    const canvas = canvasRef.current;
-    if (canvas) {
-      const ctx = canvas.getContext('2d');
-      if (ctx) {
-        ctx.lineWidth   = 1.5;
-        ctx.strokeStyle = 'rgba(139,92,246,0.2)';
-        ctx.beginPath();
-        ctx.moveTo(0, canvas.height / 2);
-        ctx.lineTo(canvas.width, canvas.height / 2);
-        ctx.stroke();
-      }
-    }
-
-    observerRef.current = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) play(); else stop(); },
-      { threshold: 0.3 }
-    );
-    if (canvasRef.current) observerRef.current.observe(canvasRef.current);
-
-    return () => {
-      stop();
-      observerRef.current?.disconnect();
-    };
-  }, [play, stop]);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      width={480}
-      height={160}
-      className="w-full rounded-lg"
-      style={{ height: '160px', display: 'block', background: 'rgba(0,0,0,0.25)' }}
-    />
-  );
-}
-
-// ── Emotion bars canvas ───────────────────────────────────────────────────────
-// Animates 8 emotion probability bars like VoiceSense's ResultView, cycling
-// through emotions to show the model's output.
-
-const EMOTIONS = [
-  { label: 'happy',     color: '#facc15', prob: 0.74 },
-  { label: 'calm',      color: '#34d399', prob: 0.52 },
-  { label: 'neutral',   color: '#94a3b8', prob: 0.41 },
-  { label: 'sad',       color: '#60a5fa', prob: 0.28 },
-  { label: 'surprised', color: '#f472b6', prob: 0.22 },
-  { label: 'fearful',   color: '#a78bfa', prob: 0.15 },
-  { label: 'angry',     color: '#f87171', prob: 0.10 },
-  { label: 'disgust',   color: '#fb923c', prob: 0.06 },
-];
-
-function EmotionBarsCanvas() {
-  const canvasRef = useRef(null);
-  const rafRef = useRef(0);
-  const observerRef = useRef(null);
-
-  const draw = useCallback((progress) => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-    const W = canvas.width;
-    const H = canvas.height;
-
-    ctx.fillStyle = 'rgba(0,0,0,0)';
-    ctx.clearRect(0, 0, W, H);
-
-    const rowH   = H / (EMOTIONS.length + 1);
-    const labelW = 68;
-    const probW  = 40;
-    const barX   = labelW + 8;
-    const barW   = W - labelW - probW - 16;
-    const maxProb = EMOTIONS[0].prob;
-
-    EMOTIONS.forEach(({ label, color, prob }, i) => {
-      const stagger = Math.min(Math.max((progress - i * 0.07) / 0.6, 0), 1);
-      const y = rowH * (i + 0.5) + rowH / 2;
-
-      // Label
-      ctx.fillStyle = i === 0
-        ? color
-        : `rgba(100,116,139,${0.4 + stagger * 0.5})`;
-      ctx.font = `${i === 0 ? 600 : 400} 10px monospace`;
-      ctx.textAlign = 'right';
-      ctx.fillText(label, labelW, y + 4);
-
-      // Bar track
-      ctx.fillStyle = 'rgba(255,255,255,0.04)';
-      ctx.beginPath();
-      ctx.roundRect(barX, y - 3, barW, 6, 3);
-      ctx.fill();
-
-      // Bar fill
-      const fillW = barW * (prob / maxProb) * stagger;
-      if (fillW > 0) {
-        ctx.save();
-        ctx.shadowColor = i === 0 ? color : 'transparent';
-        ctx.shadowBlur  = i === 0 ? 8 : 0;
-        ctx.fillStyle   = i === 0 ? color : '#334155';
-        ctx.beginPath();
-        ctx.roundRect(barX, y - 3, fillW, 6, 3);
-        ctx.fill();
-        ctx.restore();
-      }
-
-      // Percentage
-      ctx.fillStyle = `rgba(100,116,139,${stagger * 0.8})`;
-      ctx.font = '10px monospace';
-      ctx.textAlign = 'left';
-      ctx.fillText(`${Math.round(prob * 100 * stagger)}%`, barX + barW + 6, y + 4);
-    });
-
-    // Confidence badge on top right
-    if (progress > 0.7) {
-      const alpha = (progress - 0.7) / 0.3;
-      ctx.fillStyle = `rgba(250,204,21,${0.08 * alpha})`;
-      const badgeW = 114, badgeH = 22;
-      const bx = W - badgeW - 4, by = 4;
-      ctx.beginPath();
-      ctx.roundRect(bx, by, badgeW, badgeH, 11);
-      ctx.fill();
-      ctx.strokeStyle = `rgba(250,204,21,${0.3 * alpha})`;
-      ctx.lineWidth = 1;
-      ctx.stroke();
-      ctx.fillStyle = `rgba(250,204,21,${alpha})`;
-      ctx.font = '10px monospace';
-      ctx.textAlign = 'center';
-      ctx.fillText('74.2% confidence', bx + badgeW / 2, by + 14);
-    }
-
-    ctx.textAlign = 'left';
-  }, []);
-
-  const play = useCallback(() => {
-    cancelAnimationFrame(rafRef.current);
-    const start = performance.now();
-    const duration = 2400;
-    const animate = (now) => {
-      const p = Math.min((now - start) / duration, 1);
-      draw(p);
-      if (p < 1) rafRef.current = requestAnimationFrame(animate);
-    };
-    rafRef.current = requestAnimationFrame(animate);
-  }, [draw]);
-
-  useEffect(() => {
-    draw(0);
-    observerRef.current = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) play(); },
-      { threshold: 0.3 }
-    );
-    if (canvasRef.current) observerRef.current.observe(canvasRef.current);
-    return () => {
-      cancelAnimationFrame(rafRef.current);
-      observerRef.current?.disconnect();
-    };
-  }, [draw, play]);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      width={480}
-      height={192}
-      className="w-full rounded-lg"
-      style={{ height: '192px', display: 'block', background: 'rgba(0,0,0,0.25)' }}
-    />
-  );
-}
-
-// ── Dungeon map canvas ─────────────────────────────────────────────────────────
 // Mimics VibeDungeon's Rich minimap: a 3x3 grid of discovered/undiscovered rooms
 // with the player's current position pulsing.
 
@@ -351,7 +107,6 @@ function DungeonMapCanvas() {
   );
 }
 
-// ── Combat log canvas ────────────────────────────────────────────────────────
 // Animates an NPC dialogue tree like VibeDungeon's NPC Dialogue Agent: a line
 // of narration types out, then numbered choices appear and the cursor steps
 // down to the one the player picks before the response line types out.
@@ -476,23 +231,12 @@ function DialogueChoiceCanvas() {
   );
 }
 
-// ── Visual registry ───────────────────────────────────────────────────────────
-
-const VISUALS = {
-  voicesense: [
-    { label: 'WaveformVisualizer.tsx', Canvas: WaveformCanvas },
-    { label: 'ResultView.tsx', Canvas: EmotionBarsCanvas },
-  ],
-  vibedungeon: [
-    { label: 'minimap.py', Canvas: DungeonMapCanvas },
-    { label: 'npc_dialogue.py', Canvas: DialogueChoiceCanvas },
-  ],
-};
-
-// ── Featured Project ──────────────────────────────────────────────────────────
+const VISUALS = [
+  { label: 'minimap', Canvas: DungeonMapCanvas },
+  { label: 'terminal', Canvas: DialogueChoiceCanvas },
+];
 
 export default function FeaturedProject({ project }) {
-  const visuals = VISUALS[project.visual] ?? VISUALS.voicesense;
   return (
     <motion.div
       initial={{ opacity: 0, y: 32 }}
@@ -562,7 +306,7 @@ export default function FeaturedProject({ project }) {
 
         {/* Right: animated visuals */}
         <div className="border-t lg:border-t-0 lg:border-l border-white/5 p-6 md:p-8 flex flex-col gap-4 bg-black/20">
-          {visuals.map(({ label, Canvas }) => (
+          {VISUALS.map(({ label, Canvas }) => (
             <div key={label} className="rounded-xl overflow-hidden border border-white/5">
               <div className="px-3 py-2 bg-black/30 border-b border-white/5 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-zinc-700" />
