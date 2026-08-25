@@ -16,6 +16,14 @@ const featuredProject = {
 
 const projects = [
   {
+    title: 'Recommendation Engine Evaluation Model',
+    type: 'Machine Learning',
+    year: '2026',
+    description: 'A causal Transformer skip-prediction model for sequential listening behavior, built for Datahack 2026. Converts each session into a token stream (user attributes + track semantics + context + labels) for next-step skip prediction, reaching 87.07% validation accuracy. Scales representation learning to over 1 million tracks via 3-level hierarchical semantic track IDs generated with MiniBatchKMeans clustering on standardized audio features.',
+    tech: ['Python', 'PyTorch', 'Transformers', 'MiniBatchKMeans', 'Machine Learning'],
+    github: null,
+  },
+  {
     title: 'VoiceSense',
     type: 'Machine Learning',
     year: '2026',

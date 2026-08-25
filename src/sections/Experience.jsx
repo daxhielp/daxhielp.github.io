@@ -1,13 +1,20 @@
 import SectionHeader from '../components/SectionHeader';
 import { motion } from 'framer-motion';
 
-import resume from '../assets/daxhiel_resume.pdf';
+import resume from '../assets/daxhielperugorria_resume.pdf';
 
 const experiences = [
   {
+    role: "Software Engineering / Data Analytics Consultant",
+    company: "Project Advance Austin",
+    period: "August 2026 - Current",
+    description: "Engineering an interactive geospatial analytics tool in Tableau mapping relational distances between incarcerated mothers and their children and synthesizing empirical literature and program metrics into a data-driven publication to support grant and sponsorship acquisition."
+  },
+  {
     role: "Course Instructor",
+    company: "Code2College",
     period: "June 2026 - July 2026",
-    description: "Instructed 24+ students on SDE fundamentals, including Python programming, OOP, error handling, and data management, achieving 94% average attendance and 95% average quiz scores."
+    description: "Instructed 24+ students over an 18-session curriculum on SDE fundamentals, including Python programming, OOP, error handling, and data management, achieving 95% average attendance and 97% average quiz scores."
   },
   {
     role: "Freelance Developer",
@@ -26,7 +33,7 @@ export default function Experience() {
           <p className="text-slate-muted max-w-sm mb-8">
             My programming journey has been driven by my passion for solving problems and learning new ideas.
           </p>
-          <a href={resume} download='resume.pdf' className="text-sm font-medium border-b border-white pb-1 hover:text-slate-300 transition-colors inline-block">
+          <a href={resume} download='daxhielperugorria_resume.pdf' className="text-sm font-medium border-b border-white pb-1 hover:text-slate-300 transition-colors inline-block">
             View Full Resume
           </a>
         </div>
