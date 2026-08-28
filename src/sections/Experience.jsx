@@ -5,7 +5,7 @@ import resume from '../assets/daxhielperugorria_resume.pdf';
 
 const experiences = [
   {
-    role: "Software Engineering / Data Analytics Consultant",
+    role: "Data Analytics Consultant",
     company: "Project Advance Austin",
     period: "August 2026 - Current",
     description: "Engineering an interactive geospatial analytics tool in Tableau mapping relational distances between incarcerated mothers and their children and synthesizing empirical literature and program metrics into a data-driven publication to support grant and sponsorship acquisition."
