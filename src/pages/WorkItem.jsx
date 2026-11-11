@@ -1,5 +1,5 @@
 import Fingerprint from '../components/Fingerprint';
-import resume from '../assets/daxhiel_resume.pdf';
+import resume from '../assets/daxhielperugorria_resume.pdf';
 
 // Detail view shared by roles and projects, so both read the same way.
 export default function WorkItem({ item, theme, onBack }) {
@@ -31,8 +31,8 @@ export default function WorkItem({ item, theme, onBack }) {
           </a>
         )}
         {item.kind === 'role' && (
-          <a href={resume} download="Daxhiel_Perugorria_Resume.pdf">
-            résumé (PDF) ↓
+          <a href={resume} target="_blank" rel="noopener noreferrer">
+            résumé (PDF) ↗
           </a>
         )}
       </div>

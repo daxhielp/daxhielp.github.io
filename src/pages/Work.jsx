@@ -1,5 +1,5 @@
 import { WORK } from '../data/content';
-import resume from '../assets/daxhiel_resume.pdf';
+import resume from '../assets/daxhielperugorria_resume.pdf';
 
 export default function Work({ onOpen }) {
   return (
@@ -24,8 +24,8 @@ export default function Work({ onOpen }) {
           </li>
         ))}
       </ol>
-      <a className="dl list-foot" href={resume} download="Daxhiel_Perugorria_Resume.pdf">
-        résumé (PDF) ↓
+      <a className="dl list-foot" href={resume} target="_blank" rel="noopener noreferrer">
+        résumé (PDF) ↗
       </a>
     </>
   );

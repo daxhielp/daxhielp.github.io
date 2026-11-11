@@ -37,6 +37,16 @@ export const CORNERS = [
 
 export const PROJECTS = [
   {
+    slug: 'recommendation-engine',
+    title: 'recommendation engine evaluation model',
+    short: 'rec engine',
+    type: 'machine learning',
+    year: '2026',
+    description:
+      'a causal transformer skip-prediction model for sequential listening behavior, built for datahack 2026. converts each session into a token stream (user attributes + track semantics + context + labels) for next-step skip prediction, reaching 87.07% validation accuracy. scales representation learning to over 1 million tracks via 3-level hierarchical semantic track IDs generated with MiniBatchKMeans clustering on standardized audio features.',
+    tech: ['python', 'pytorch', 'transformers', 'MiniBatchKMeans', 'machine learning'],
+  },
+  {
     slug: 'vibedungeon',
     title: 'vibedungeon',
     short: 'vibedungeon',
@@ -108,6 +118,17 @@ export const PROJECTS = [
 
 export const EXPERIENCE = [
   {
+    slug: 'data-analytics-consultant',
+    title: 'data analytics consultant',
+    short: 'analytics',
+    type: 'experience',
+    year: '2026',
+    period: 'august 2026 – current',
+    description:
+      'project advance austin: engineering an interactive geospatial analytics tool in tableau mapping relational distances between incarcerated mothers and their children and synthesizing empirical literature and program metrics into a data-driven publication to support grant and sponsorship acquisition.',
+    tech: ['tableau', 'geospatial analytics', 'data analysis', 'research'],
+  },
+  {
     slug: 'course-instructor',
     title: 'course instructor',
     short: 'instructor',
@@ -115,7 +136,7 @@ export const EXPERIENCE = [
     year: '2026',
     period: 'june 2026 – july 2026',
     description:
-      'instructed 24+ students on SDE fundamentals, including python programming, OOP, error handling, and data management, achieving 94% average attendance and 95% average quiz scores.',
+      'code2college: instructed 24+ students over an 18-session curriculum on SDE fundamentals, including python programming, OOP, error handling, and data management, achieving 95% average attendance and 97% average quiz scores.',
     tech: ['teaching', 'python', 'OOP', 'error handling', 'data management'],
   },
   {
