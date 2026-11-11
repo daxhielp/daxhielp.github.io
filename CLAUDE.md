@@ -15,22 +15,20 @@ Deployment is automatic: pushing to `main` triggers the GitHub Actions workflow 
 
 ## Architecture
 
-Single-page portfolio site built with React 19 + Vite + Tailwind CSS v3. No router — all sections are stacked vertically in `App.jsx`.
+Multi-page portfolio built with React 19 + Vite + Tailwind CSS v3, styled as an oscilloscope in XY mode ("Magnet" design). One full-screen view: an ASCII Lissajous figure in the background, the four pages in the four screen corners, name on the top edge, Color!/theme toggles on the bottom edge. Opening a page shows a content card in the center.
 
-**Section order** (defined in `src/App.jsx`):
-1. `Hero` — name/intro with gradient heading
-2. `Experience` — work history with PDF resume download (`src/assets/daxhiel_resume.pdf`)
-3. `SelectedWorks` — project showcase using `BentoCard` grid
+**Routing:** hash routes via `src/hooks/useHashRoute.js` (`#/about`, `#/work`, `#/work/<slug>`, `#/thoughts`, `#/thoughts/<slug>`, `#/contact`; empty = home). Hash routing because GitHub Pages has no server-side routing. Keys `0`–`4` switch pages, `Esc` goes back.
+
+**Content:** all text/data lives in `src/data/content.js` (`WORK` = experience roles + projects in one list with one detail layout, `THOUGHTS` posts, links, per-page frequency ratio `RATIOS`, per-page channel color `CHANNEL`, corner placement). Page bodies are in `src/pages/`. Resume PDF: `src/assets/daxhiel_resume.pdf`.
 
 **Key components:**
-- `InteractiveBackground` (`.tsx`) — canvas-based particle/constellation animation with mouse repulsion. Wraps the non-footer sections. Only file using TypeScript.
-- `MagneticCursor` — custom cursor overlay; native cursor is hidden globally via `index.css` (`cursor: none` on `body` and interactive elements).
-- `BentoCard` — reusable card with `glass-panel` styling and Framer Motion scroll animation.
-- `SectionHeader` — consistent two-line heading (title + subtitle label) used across sections.
+- `ScopeCanvas` — the background. Canvas loop samples the Lissajous figure, pushes it away from the cursor (pulls while mouse is held), ripples it with click shockwaves, wheel zooms, and snaps samples off the open card's rect (`obstacleRef`) so the beam wraps around the card. Mounted once; props are synced into a ref read by the loop. Colors are read from CSS variables on theme/channel change.
+- `CornerNav` — the four corner links; hovering one retunes the figure to that page's ratio.
+- `Card` — the centered content card (Framer Motion fade/scale in). Hovering it sets `.is-focused` on `.app`, which dims and blurs the canvas.
+- `Fingerprint` — per-project AudioPrint-style peak/hash graphic, seeded by slug.
 
 **Styling conventions:**
-- Custom Tailwind colors: `background` (#0a0a0a), `surface` (#121212), `surface-highlight` (#1E1E1E), `slate-muted` (#94a3b8) — defined in `tailwind.config.js`.
-- `.glass-panel` utility class defined in `index.css`: `bg-white/5 backdrop-blur-md border border-white/10`.
+- Theme tokens are CSS variables in `src/index.css` (`--bg`, `--fg`, `--dim`, `--grid`, `--line`, `--panel`, channel colors `--c1`–`--c4`, current accent `--tr`). Dark is default; `useTheme` writes `data-theme` on `<html>` synchronously and persists to `localStorage`; an inline script in `index.html` sets it before first paint.
+- Layout/component styles are plain CSS classes in `src/index.css`; below 900px the HUD becomes a scrolling column over the canvas.
+- Fonts (Google Fonts, linked in `index.html`): Inter Tight (`font-sans`), IBM Plex Mono (`font-mono`), Instrument Serif (`font-serif`).
 - `cn()` helper in `src/utils/cn.js` merges `clsx` + `tailwind-merge`.
-- Animations use Framer Motion (`framer-motion`). Scroll-triggered animations use `whileInView` with `viewport={{ once: true }}`.
-- Inter font via `fontFamily.sans` in Tailwind config.

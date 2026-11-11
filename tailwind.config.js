@@ -6,14 +6,18 @@ export default {
   ],
   theme: {
     extend: {
+      // Colors live as CSS variables in src/index.css (they switch with the theme).
       colors: {
-        background: '#0a0a0a',
-        surface: '#121212',
-        'surface-highlight': '#1E1E1E',
-        'slate-muted': '#94a3b8',
+        bg: 'var(--bg)',
+        fg: 'var(--fg)',
+        dim: 'var(--dim)',
+        line: 'var(--line)',
+        accent: 'var(--tr)',
       },
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['"Inter Tight"', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        mono: ['"IBM Plex Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Consolas', 'monospace'],
+        serif: ['"Instrument Serif"', 'Georgia', 'serif'],
       },
     },
   },
