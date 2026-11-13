@@ -47,7 +47,7 @@ function App() {
   }, [navigate, back]);
 
   useEffect(() => {
-    const parts = ['daxhiel p.'];
+    const parts = ['dax.'];
     if (!isHome) parts.unshift(item ? item.title : LABELS[page]);
     document.title = parts.join(' · ');
   }, [isHome, page, item]);

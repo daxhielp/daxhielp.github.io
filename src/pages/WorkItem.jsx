@@ -12,7 +12,9 @@ export default function WorkItem({ item, onBack }) {
       <div className="meta">
         {item.type} · {item.period ?? item.year}
       </div>
-      <p>{item.description}</p>
+      {[].concat(item.description).map((para, i) => (
+        <p key={i}>{para}</p>
+      ))}
       <ul className="tech">
         {item.tech.map((t) => (
           <li key={t}>{t}</li>

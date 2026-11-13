@@ -3,7 +3,7 @@ import { CORNERS, CHANNEL, LABELS, RATIOS } from '../data/content';
 export default function CornerNav({ page, onHover, onNavigate }) {
   return (
     <nav aria-label="Pages" className="corners">
-      {CORNERS.map(({ key, pos }, i) => (
+      {CORNERS.map(({ key, pos }) => (
         <a
           key={key}
           href={`#/${key}`}

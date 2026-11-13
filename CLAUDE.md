@@ -19,7 +19,7 @@ Multi-page portfolio built with React 19 + Vite + Tailwind CSS v3, styled as an 
 
 **Routing:** hash routes via `src/hooks/useHashRoute.js` (`#/about`, `#/work`, `#/work/<slug>`, `#/thoughts`, `#/thoughts/<slug>`, `#/contact`; empty = home). Hash routing because GitHub Pages has no server-side routing. Keys `0`–`4` switch pages, `Esc` goes back.
 
-**Content:** all text/data lives in `src/data/content.js` (`WORK` = experience roles + projects in one list with one detail layout, `THOUGHTS` posts, links, per-page frequency ratio `RATIOS`, per-page channel color `CHANNEL`, corner placement). Page bodies are in `src/pages/`. Resume PDF: `src/assets/daxhiel_resume.pdf`.
+**Content:** all text/data lives in `src/data/content.js` (`WORK` = experience roles + projects in one list with one detail layout; each `description` is an array of paragraphs, `THOUGHTS` posts, links, per-page frequency ratio `RATIOS`, per-page channel color `CHANNEL`, corner placement). Page bodies are in `src/pages/`. Resume PDF: `src/assets/daxhielperugorria_resume.pdf`.
 
 **Key components:**
 - `ScopeCanvas` — the background. Canvas loop samples the Lissajous figure, pushes it away from the cursor (pulls while mouse is held), ripples it with click shockwaves, wheel zooms, and snaps samples off the open card's rect (`obstacleRef`) so the beam wraps around the card. Mounted once; props are synced into a ref read by the loop. Colors are read from CSS variables on theme/channel change.
