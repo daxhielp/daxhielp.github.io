@@ -330,6 +330,12 @@
   font-size: 13px;
   line-height: 1.55;
 }
+.org {
+  @apply font-mono;
+  font-size: 13px;
+  margin-bottom: 4px;
+  color: var(--tr);
+}
 .meta {
   @apply font-mono;
   font-size: 12px;
@@ -406,20 +412,6 @@
   @apply font-mono;
   font-size: 12px;
   margin-bottom: 14px;
-}
-.fp {
-  margin: 4px 0 16px;
-}
-.fp canvas {
-  display: block;
-  width: 100%;
-  height: 150px;
-}
-.fp figcaption {
-  @apply font-mono;
-  font-size: 11px;
-  color: var(--dim);
-  margin-top: 6px;
 }
 .dl {
   @apply font-mono;

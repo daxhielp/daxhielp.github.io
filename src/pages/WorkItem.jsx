@@ -1,18 +1,17 @@
-import Fingerprint from '../components/Fingerprint';
 import resume from '../assets/daxhielperugorria_resume.pdf';
 
 // Detail view shared by roles and projects, so both read the same way.
-export default function WorkItem({ item, theme, onBack }) {
+export default function WorkItem({ item, onBack }) {
   return (
     <>
       <button type="button" className="back" onClick={onBack}>
         ← all work
       </button>
       <h2>{item.title}</h2>
+      {item.org && <div className="org">@ {item.org}</div>}
       <div className="meta">
         {item.type} · {item.period ?? item.year}
       </div>
-      <Fingerprint seed={item.slug} title={item.title} theme={theme} />
       <p>{item.description}</p>
       <ul className="tech">
         {item.tech.map((t) => (

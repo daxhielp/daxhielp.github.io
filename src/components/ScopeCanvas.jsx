@@ -9,7 +9,7 @@ const CW = 8; // cell width (px)
 const CH = 13; // cell height (px)
 const RAMP = ' .,:;=+*#%@';
 const SAMPLES = 2600;
-const MAGNET_RADIUS = 150;
+const MAGNET_RADIUS = 195;
 const PULSE_LIFE = 1.3; // s
 const PULSE_SPEED = 560; // px/s
 const CARD_MARGIN = 28; // px kept clear around the card
@@ -97,6 +97,11 @@ export default function ScopeCanvas({ ratioKey, channel, theme, obstacleRef, has
       if (!e.relatedTarget) s.mIn = false;
     };
     const onDown = (e) => {
+      // Corner links get the shockwave too, but not the pull.
+      if (e.target instanceof Element && e.target.closest('.corner')) {
+        s.pulses.push({ x: e.clientX, y: e.clientY, t: s.t });
+        return;
+      }
       if (!isBg(e)) return;
       s.down = true;
       s.pulses.push({ x: e.clientX, y: e.clientY, t: s.t });
@@ -126,8 +131,8 @@ export default function ScopeCanvas({ ratioKey, channel, theme, obstacleRef, has
       const cx = w / 2;
       const cy = h / 2;
       const phase = t * 0.5;
-      const push = s.down ? -55 : 70;
-      const maxStep = s.down ? 0.95 : 9;
+      const push = s.down ? -72 : 91;
+      const maxStep = s.down ? 1.24 : 11.7;
 
       let card = null;
       const el = s.obstacleRef?.current;

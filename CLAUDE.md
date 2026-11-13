@@ -25,8 +25,6 @@ Multi-page portfolio built with React 19 + Vite + Tailwind CSS v3, styled as an 
 - `ScopeCanvas` — the background. Canvas loop samples the Lissajous figure, pushes it away from the cursor (pulls while mouse is held), ripples it with click shockwaves, wheel zooms, and snaps samples off the open card's rect (`obstacleRef`) so the beam wraps around the card. Mounted once; props are synced into a ref read by the loop. Colors are read from CSS variables on theme/channel change.
 - `CornerNav` — the four corner links; hovering one retunes the figure to that page's ratio.
 - `Card` — the centered content card (Framer Motion fade/scale in). Hovering it sets `.is-focused` on `.app`, which dims and blurs the canvas.
-- `Fingerprint` — per-project AudioPrint-style peak/hash graphic, seeded by slug.
-
 **Styling conventions:**
 - Theme tokens are CSS variables in `src/index.css` (`--bg`, `--fg`, `--dim`, `--grid`, `--line`, `--panel`, channel colors `--c1`–`--c4`, current accent `--tr`). Dark is default; `useTheme` writes `data-theme` on `<html>` synchronously and persists to `localStorage`; an inline script in `index.html` sets it before first paint.
 - Layout/component styles are plain CSS classes in `src/index.css`; below 900px the HUD becomes a scrolling column over the canvas.

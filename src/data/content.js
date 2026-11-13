@@ -124,8 +124,9 @@ export const EXPERIENCE = [
     type: 'experience',
     year: '2026',
     period: 'august 2026 – current',
+    org: 'project advance austin',
     description:
-      'project advance austin: engineering an interactive geospatial analytics tool in tableau mapping relational distances between incarcerated mothers and their children and synthesizing empirical literature and program metrics into a data-driven publication to support grant and sponsorship acquisition.',
+      'engineering an interactive geospatial analytics tool in tableau mapping relational distances between incarcerated mothers and their children and synthesizing empirical literature and program metrics into a data-driven publication to support grant and sponsorship acquisition.',
     tech: ['tableau', 'geospatial analytics', 'data analysis', 'research'],
   },
   {
@@ -135,8 +136,9 @@ export const EXPERIENCE = [
     type: 'experience',
     year: '2026',
     period: 'june 2026 – july 2026',
+    org: 'code2college',
     description:
-      'code2college: instructed 24+ students over an 18-session curriculum on SDE fundamentals, including python programming, OOP, error handling, and data management, achieving 95% average attendance and 97% average quiz scores.',
+      'instructed 24+ students over an 18-session curriculum on SDE fundamentals, including python programming, OOP, error handling, and data management, achieving 95% average attendance and 97% average quiz scores.',
     tech: ['teaching', 'python', 'OOP', 'error handling', 'data management'],
   },
   {
@@ -168,11 +170,11 @@ export const THOUGHTS = [
     slug: 'hello-world',
     title: 'hi, world.',
     date: '2026-11-11',
-    summary: 'the portfolio got a glow-up. here’s what that squiggle in the background is about.',
+    summary: 'about the revamped portfolio...',
     body: [
-      'so, new portfolio. the old one did its job, but it was too generic. i wanted something that looked a little more like me, so i came up with this revamped design!',
-      'the first thing that caught your eye was probably the squiggle in the background. that’s a [lissajous](https://en.wikipedia.org/wiki/Lissajous_curve) figure, the pattern old-school oscilloscopes draw when you set them to XY mode. feed one sine wave to the horizontal axis and another to the vertical, and the beam ends up drawing knots like these.',
-      'the shape entirely depends on the relationships between the two waves. if their frequencies match (1:1) you get a plain loop, and other ratios give you fancier knots.',
+      'so, new portfolio. the old one did its job, but it was too generic and lacked a characteristic design. i wanted something that looked a little more like me, so i came up with this revamped layout!',
+      'the first thing that caught your eye was probably the squiggle in the background. that’s a [lissajous](https://en.wikipedia.org/wiki/Lissajous_curve) figure, the pattern old-school oscilloscopes can draw in xy mode. feed one sine wave to the horizontal axis and another to the vertical, and the beam ends up drawing knots like these.',
+      'the shape entirely depends on the relationships between the two waves. if their frequencies match (1:1) you get a plain loop, and other ratios give you more complicated knots.',
       '     ',
       'here’s basically the whole idea:',
       {

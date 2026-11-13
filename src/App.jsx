@@ -99,7 +99,7 @@ function App() {
           <Card key={routeKey} ref={cardRef} heading={heading} onClose={back} onFocusChange={onCardFocus}>
             {page === 'about' && <About />}
             {page === 'work' && !item && <Work onOpen={(s) => navigate('work', s)} />}
-            {page === 'work' && item && <WorkItem item={item} theme={theme} onBack={() => navigate('work')} />}
+            {page === 'work' && item && <WorkItem item={item} onBack={() => navigate('work')} />}
             {page === 'thoughts' && !item && <ThoughtsList onOpen={(s) => navigate('thoughts', s)} />}
             {page === 'thoughts' && item && <Thought post={item} onBack={() => navigate('thoughts')} />}
             {page === 'contact' && <Contact />}
